@@ -1,0 +1,15 @@
+
+   #cv-templates{
+       display:none;
+   }
+   #cv-form{
+     display:block;
+   }
+   .myimg{
+       border:1px solid green;
+       border-radius: 50%;
+       width: 180px;
+   }
+   .background{
+       background-color:grey;
+   }

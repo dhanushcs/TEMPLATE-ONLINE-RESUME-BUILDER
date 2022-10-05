@@ -1,0 +1,12 @@
+
+     #cv-temp1{
+         display: none;
+     }
+     .myimg{
+         border:1px solid green;
+         border-radius: 50%;
+         width: 180px;
+     }
+     .background{
+         background-color:rgb(123, 195, 237);
+     }

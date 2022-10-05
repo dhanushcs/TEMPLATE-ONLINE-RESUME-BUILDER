@@ -1,0 +1,216 @@
+{% extends 'base.html' %}
+{% load static %}
+ 
+{% block title %} home{% endblock title %} 
+{% block style2 %}<link rel="stylesheet" href="{% static 'templates2.css'%}">{% endblock style2 %}
+{% block body %}
+
+    <div class="container" id="cv-form">
+      <h1 class="text-center my-2"> REsume BUILDer</h1>
+      <p class="text-center"> Create your page</p>
+       <div class="row ">
+          <div class="col-md-6">
+           <h3>Personal information</h3>
+           <div class="form-group">
+             <label for="nameField">your name</label>
+             <input type="text" class="form-control" id="nameField" placeholder="enter here">
+           </div>
+          
+          
+             
+             <div class="form-group">
+               <label for="contactField">your contact</label>
+               <input type="phone" class="form-control" id="contactField" placeholder="enter here">
+             </div>
+          
+          
+             
+             <div class="form-group">
+               <label for="emailField">your email</label>
+               <input type="email" class="form-control" id="emailField" placeholder="enter here">
+             </div>
+ 
+             <div class="form-group my-2">
+                 <label for="">choose your profile picture:</label>
+                 <input type="file" id="imgfeild" class="form-control">
+             </div>
+             <p class="text-secindary my-3">important links</p>
+             <div class="form-group">
+                 <label for="fbField">facebook</label>
+                 <input type="text" class="form-control" id="fbField" placeholder="enter hrre">
+               </div>
+               <div class="form-group">
+                 <label for="instaField">instagram</label>
+                 <input type="text" class="form-control" id="instaField" placeholder="enter hrre">
+               </div>
+               <div class="form-group">
+                 <label for="linkedField">linkedin</label>
+                 <input type="text" class="form-control" id="linkedField" placeholder="enter hrre">
+               </div>
+                   
+          </div>
+          <div class="col-md-6">
+       <h3>professional information</h3>
+       <div class="form-group mt-2">
+         <label for="">objectives</label>
+         <textarea  class="form-control" id="obField" placeholder="enter here" rows="2" >
+         </textarea>
+       </div>
+       <div class="form-group mt-2" id="we">
+         <label for="">work experience</label>
+         <textarea  class="form-control weField"  placeholder="enter here" rows="2">
+         </textarea>
+         <div class="container text-center mt-2" id="weAddbutton">
+             <button onclick="addNewWEField()" class="btn btn-secondary btn-sm">add</button>
+         </div>
+       </div>
+       <div class="form-group mt-2" id="ed">
+         <label for="">Education</label>
+         <textarea  class="form-control edField" placeholder="enter here" rows="2">
+         </textarea>
+         <div class="container text-center mt-2 " id="edAddbutton">
+             <button onclick="addNewEDField()" class="btn btn-secondary btn-sm">add</button>
+         </div>
+       </div>
+       <div class="form-group mt-2" id="te">
+         <label for="">Techincal skills</label>
+         <textarea  class="form-control teField" placeholder="enter here" rows="1">
+         </textarea>
+         <div class="container text-center mt-2 " id="teaddbutton">
+             <button onclick="addNewTEField()" class="btn btn-secondary btn-sm">add</button>
+         </div>
+       </div>
+       <div class="form-group mt-2" id="pr">
+         <label for="">Projects:</label>
+         <textarea  class="form-control prField" placeholder="enter here" rows="1">
+         </textarea>
+         <div class="container text-center mt-2 " id="praddbutton">
+             <button onclick="addNewPRField()" class="btn btn-secondary btn-sm">add</button>
+         </div>
+       </div>
+       <div class="form-group mt-2">
+         <label for="">languages</label>
+         <textarea  class="form-control" id="laField" placeholder="enter here" rows="1" >
+         </textarea>
+       </div>
+       </div>
+   </div>
+   <div class="container text-center  mt-3">
+     <button onclick="generatecv()" class="btn btn-secondary">generate CV</button>
+   </div>
+  </div>
+ 
+   <!-- CV TEMPLATES-->
+   <div class="container" id="cv-temp1">
+     <div class="row">
+         <div class="col-md-6 text-center py-4 background">
+             <img class="img-fluid myimg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqARc5kQWwoexnY9_VvRZRc1NiaNNAfk1g9A&usqp=CAU" alt="" id="imgt">
+         </div>
+         <div class="col-md-6 text-center py-4 background">
+                 <p id="namet" class="text-left pt-0" style="font-weight :600px; font-size:40px; "> abc</p>
+                 <p id="contactt"> 9876543210</p>
+                 <p id="emailt">email</p>
+                 <p id="fbt"><a href="#1">http://www.facebook</a></p>
+                 <p id="instat"><a href="#1">http://www.instagram</a></p>
+                 <p id="linkedt"><a href="#1">http://www.linkedin</a></p>
+         </div>
+     </div>
+             <hr>
+             <!-- education templates-->
+             <div class="row">
+                 <div class="card" mt-4>
+                     <div class="card-header background">
+                         <h3>OBJECTIVES</h3>
+                     </div>
+                     <div class="card-body">
+                         <p id="obt"> 
+                            Lorem ipsum dolor sit amet.
+                         </p>
+                     </div>
+                 </div>
+             </div>
+             <div class="row">
+                 <div class="card" mt-4>
+                 <div class="card-header background">
+                     <h3>EDUCATION</h3>
+                 </div>
+                 <div class="card-body">
+                     <ul id="edt">
+                         <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, praesentium!</li>
+                         <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, praesentium!</li>
+                         <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, praesentium!</li>
+                     </ul>
+                 </div>
+             </div>
+             <div class="card" mt-4>
+                 <div class="card-header background">
+                     <h3>WORK EXPERINCE</h3>
+                 </div>
+                 <div class="card-body">
+                     <ul id="wet">
+                         <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, praesentium!</li>
+                         <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, praesentium!</li>
+                         <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, praesentium!</li>
+                     </ul>
+                 </div>
+             </div>
+         </div>
+         <hr>
+         <!-- technical skill templates-->
+         <div class="row">
+         <div class="card" mt-4>
+             <div class="card-header background">
+                 <h3>TECHNICAL SKILL</h3></div>
+                 <div class="card-body">
+                     <ul id="tet">
+                         <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, praesentium!</li>
+                         <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, praesentium!</li>
+                         <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, praesentium!</li>
+                     </ul>
+                 </div>
+     </div>
+     <hr>
+     <!--project templates-->
+     <div class="row">
+         <div class="card" mt-4>
+             <div class="card-header background">
+                 <h3>PROJECTS</h3>
+             </div>
+             <div class="card-body">
+                 <ul id="prt">
+                     <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, praesentium!</li>
+                     <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, praesentium!</li>
+                     <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, praesentium!</li>
+                 </ul>
+             </div>
+         </div>
+     </div>
+     <hr>
+     <!--internship templates-->
+    
+      <!-- languages templates-->
+     <div class="row">
+         <div class="card mt-4" >
+             <div class="card-header background">
+                 <h3>LANGUAGES</h3>
+             </div>
+             <div class="card-body">
+                 <p id="lat"> 
+                    eg.  english,hindi,kannada,telugu
+                 </p>
+             </div>
+         </div>
+     </div>
+     <hr>
+     <!--print -->
+     <div class="container mt-3 text-center" >
+         <button onclick="print()" class="btn background">print cv</button>
+     </div>
+     </div>
+ 
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+     <script src="temp1.js"></script>
+ 
+{% endblock body %}
+
+{% block script2 %} <script src="static/templates2.js"></script> {% endblock script2 %}
